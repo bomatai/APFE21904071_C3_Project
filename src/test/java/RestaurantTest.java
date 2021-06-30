@@ -26,7 +26,8 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
-        assertEquals(true, restaurant.isRestaurantOpen());
+        when(timeTestRestaurant.getCurrentTime()).thenReturn(restaurant.openingTime.plusMinutes(10));
+        assertEquals(true, timeTestRestaurant.isRestaurantOpen());
     }
 
     @Test
@@ -59,4 +60,6 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    
 }
