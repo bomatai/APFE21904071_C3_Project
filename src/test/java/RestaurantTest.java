@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 
 class RestaurantTest {
     Restaurant restaurant;
-    Restaurant TestRestaurant1 = Mockito.mock(Restaurant.class);
+    Restaurant timeTestRestaurant = Mockito.mock(Restaurant.class);
 
     //REFACTOR ALL THE REPEATED LINES OF CODE
     public RestaurantTest(){
@@ -26,16 +26,16 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
-        when(TestRestaurant1.getCurrentTime()).thenReturn(restaurant.closingTime.minusHours(1));
-        assertEquals(true, TestRestaurant1.isRestaurantOpen());
+        assertEquals(true, restaurant.isRestaurantOpen());
     }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
-        when(TestRestaurant1.getCurrentTime()).thenReturn(restaurant.closingTime.plusMinutes(10));
-        assertEquals(false, TestRestaurant1.isRestaurantOpen());
+        when(timeTestRestaurant.getCurrentTime()).thenReturn(restaurant.closingTime.plusMinutes(1));
+        assertEquals(false, timeTestRestaurant.isRestaurantOpen());
     }
+
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
