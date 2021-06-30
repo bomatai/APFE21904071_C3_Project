@@ -53,14 +53,9 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
 
-    public int calculateOrder(List<String> itemNames){
-        int total = 0;
-        for (String name: itemNames){
-            Item item = findItemByName(name);
-            total += item.getPrice();
-        }
-        return total;
-    }
+    public int calculateOrder(){
+        int total; 
+        return total=0; }
 
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
