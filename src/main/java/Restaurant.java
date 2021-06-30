@@ -52,6 +52,11 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+
+    public int calculateOrder(){
+        int total; 
+        return total=0; }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"

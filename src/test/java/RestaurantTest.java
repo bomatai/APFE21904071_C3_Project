@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -61,5 +62,36 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<<<<Order Price Calculate>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+@Test
+public void calculate_order_price(){
+    List<String> itemList = new ArrayList<>();
+
+    //order Items
+    itemList.add("Sweet corn soup");
+
+    //calculate price from method
+    int calculatedPrice = restaurant.calculateOrder(itemList);
+    int manualCalculated = calculateItemListPrice(itemList);
+
+    assertEquals(manualCalculated, calculatedPrice);
+}
+
+//Calculate Item Price for check
+public int calculateItemListPrice(List<String> items){
+    List<Item> itemList = new ArrayList<>();
+    int price = 0;
+
+    for (String name : items){
+         itemList.add(restaurant.findItemByName(name));
+    }
+
+    for (Item item: itemList){
+        price += item.getPrice();
+    }
+
+    return price;
+}
     
 }
